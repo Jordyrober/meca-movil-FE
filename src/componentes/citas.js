@@ -1,4 +1,7 @@
+import { useState } from "react";
 import React from 'react'
+import Axios from "../services/axios";
+import HeaderComponents from "./HeaderComponents";
 
 function Citas() {
     const variables = {
@@ -21,7 +24,7 @@ function Citas() {
     };
 
     const Guardar = async ()=>{
-        Axios.post("/cita",{
+        Axios.post("/citas/guardarCita",{
             nombre: values.nombre,
             apellidoPat: values.apellidoPat,
             apellidoMat: values.apellidoMat,
@@ -189,7 +192,11 @@ function Citas() {
                     </div>
                   </div>
 
-                 
+                  <input type="datetime-local" 
+                  name="fecha"
+                  value={values.fecha}
+                  onChange={handleChange}
+                  />
 
                   <br/>
                   <div class="form-group">

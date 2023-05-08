@@ -1,9 +1,12 @@
 import React from 'react'
+import HeaderComponents from './HeaderComponents'
 
 function HistorialDeServicio() {
   return (
+    
     <div>
-      Historial de servicio
+      <HeaderComponents title="Historial de servicio" />
+      Datos xxxx
     </div>
   )
 }

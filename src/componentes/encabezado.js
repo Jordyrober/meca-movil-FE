@@ -1,7 +1,9 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
-function encabezado() {
+function Encabezado() {
+  const location = useLocation().pathname;
+  console.log(location);
+
   return (
     <div>
       <nav class="navbar bg-dark " data-bs-theme="dark">
@@ -9,6 +11,7 @@ function encabezado() {
           <a class="navbar-brand" href="#">
             Navbar
           </a>
+
           <button
             class="navbar-toggler"
             type="button"
@@ -20,27 +23,61 @@ function encabezado() {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/historialServicio">
-                  Historial de servicio
-                </Link>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Citas
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Registrar Vehiculo
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
+            {!location.match("admin") && (
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <Link
+                    class="nav-link active"
+                    aria-current="page"
+                    to="/historialServicio"
+                  >
+                    Historial de servicio
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/citas">
+                    Citas
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Registrar Vehiculo
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled">Disabled</a>
+                </li>
+              </ul>
+            )}
+
+            {location.match("admin") && (
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <Link
+                    class="nav-link active"
+                    aria-current="page"
+                    to="/historialServicio"
+                  >
+                    Vehiculos en Taller
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Citas
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Reportes
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled">Disabled</a>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
@@ -48,4 +85,4 @@ function encabezado() {
   );
 }
 
-export default encabezado;
+export default Encabezado;

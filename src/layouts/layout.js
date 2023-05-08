@@ -1,10 +1,12 @@
 import React from 'react'
-import Encabezado from '../componentes/encabezado'
+//import Encabezado from '../componentes/encabezado'
+import Header from '../componentes/header'
 
 function Layout() {
   return (
     <div>
-      <Encabezado/>
+      {/* <Encabezado/> */}
+      {<Header/>}
     </div>
   )
 }
