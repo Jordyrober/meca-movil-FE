@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../img/logo.png"
+import logo from "../img/logo.png";
 
-import "../css/style.css"
+import "../css/style.css";
 
 function Header() {
   const location = useLocation().pathname;
@@ -13,7 +13,13 @@ function Header() {
       <nav class="navbar navbar-expand-lg bg-body-tertiary ">
         <div class="container-fluid ">
           <a class="navbar-brand" href="#">
-          <img src={logo} alt="Logo" width="30" height="24" class="d-inline-block align-text-top"/>
+            <img
+              src={logo}
+              alt="Logo"
+              width="30"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
           </a>
           <button
             class="navbar-toggler"
@@ -85,18 +91,34 @@ function Header() {
             {location.match("admin") && (
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <Link
-                    class="nav-link active"
-                    aria-current="page"
-                    to=""
-                  >
+                  <Link class="nav-link active" aria-current="page" to="">
                     Vehiculos en taller
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/citasADM">
+                
+
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
                     Citas
-                  </Link>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <Link class="dropdown-item" to="/agendarCita">
+                        Generar Citas
+                      </Link>
+                    </li>
+                    <li>
+                      <Link class="dropdown-item" to="/citasADM">
+                        Ver Citas
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
 
                 <li class="nav-item">
@@ -106,24 +128,22 @@ function Header() {
                 </li>
               </ul>
             )}
-            
 
             <form class="d-flex" role="search">
-            <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-        >
-          <ion-icon name="accessibility-outline"></ion-icon>
-
-        </button>
-        <ul className="dropdown-menu">
-          <div className="p-2">
-            <Link className="btn btn-danger" to="/">
-              Cerrar Sesion
-            </Link>
-          </div>
-        </ul>
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+              >
+                <ion-icon name="accessibility-outline"></ion-icon>
+              </button>
+              <ul className="dropdown-menu">
+                <div className="p-2">
+                  <Link className="btn btn-danger" to="/">
+                    Cerrar Sesion
+                  </Link>
+                </div>
+              </ul>
             </form>
           </div>
         </div>

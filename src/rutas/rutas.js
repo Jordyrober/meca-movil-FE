@@ -12,6 +12,8 @@ import NotFound from "../componentes/notFound";
 
 import Home2 from "../componentes/vistasAdmin/home";
 
+import GenerarCita from "../componentes/vistasAdmin/generarCita";
+
 function rutas() {
   return (
     <div>
@@ -27,6 +29,8 @@ function rutas() {
         <Route exact path ="/admin" element={<Home2/>}/>
         <Route exact path ="/citas" element={<Citas/>}/>
         <Route exact path = "/citasADM" element={<CitasAdmin/>}/>
+        <Route exact path="/agendarCita" element={<GenerarCita/>}/>
+        <Route exact path="/agendarCita/:id" element={<GenerarCita/>}/>
         </Routes>
 
       </Router>

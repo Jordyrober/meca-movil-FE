@@ -154,3 +154,25 @@ a.more-link {
   background-color: rgb(252, 64, 63);
 
 }
+
+
+/*Para quitar el color de los links*/
+.regresar{
+  text-decoration: none;
+}
+
+
+/* Para el componente de efectos/loading.js */
+.loading{
+  height: 100vh;
+  position: relative;
+}
+
+.spinner-border{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem; 
+  height: 3rem;
+}

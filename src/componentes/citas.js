@@ -3,6 +3,8 @@ import React from 'react'
 import Axios from "../services/axios";
 import HeaderComponents from "./HeaderComponents";
 
+import { Toaster, toast } from "react-hot-toast";
+
 function Citas() {
     const variables = {
         nombre:"",
@@ -35,7 +37,7 @@ function Citas() {
             correo: values.correo,
             fecha: values.fecha
         }).then(()=>{
-            console.log("Se guardaron los datos")
+          toast.success('Successfully toasted!');
         });
         setValues(variables);
     }
